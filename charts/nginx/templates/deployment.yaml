@@ -15,7 +15,12 @@ spec:
     metadata:
       {{- with .Values.podAnnotations }}
       annotations:
+        # This checksum will restart the pod when the ConfigMap changes
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         {{- toYaml . | nindent 8 }}
+      {{- else }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- end }}
       labels:
         {{- include "nginx.labels" . | nindent 8 }}
@@ -47,10 +52,9 @@ spec:
           volumeMounts:
             - name: html
               mountPath: /usr/share/nginx/html
-      volumes:
-        - name: html
-          configMap:
-            name: {{ .Release.Name }}-index-html
+            {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
@@ -63,14 +67,13 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
-          volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
       volumes:
+        - name: html
+          configMap:
+            name: {{ .Release.Name }}-index-html
+        {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

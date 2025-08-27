@@ -1,8 +1,10 @@
+:wqapiVersion
+
+
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - flux-system/
-  - namespace.yaml
-  - nginx-helm-release.yaml
-  - podinfo-kustomization.yaml
-  - podinfo-repo.yaml
+  - namespace.yaml
+  - nginx-helm-release.yaml
+  - podinfo-repo.yaml
+  - podinfo-kustomization.yaml

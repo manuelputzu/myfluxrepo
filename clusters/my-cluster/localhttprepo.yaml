@@ -8,7 +8,9 @@ spec:
   url: http://192.168.2.216:8080 # ifconfig.en0.inet / machine address
   secretRef:
     name: myhelmrepo-secret
-—--
+
+---
+
 apiVersion: v1
 kind: Secret
 metadata:

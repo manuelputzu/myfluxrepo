@@ -5,3 +5,5 @@ resources:
   - nginx-helm-release.yaml
   - podinfo-repo.yaml
   - podinfo-kustomization.yaml
+  - busybox-helm-release.yaml
+  - localhttprepo.yaml

@@ -4,8 +4,8 @@ metadata:
   name: myhelmrepo
   namespace: default
 spec:
-  interval: 5m0s # check repo for changes
-  url: http://192.168.2.216:8080 # ifconfig.en0.inet / machine address
+  interval: 1m0s # check repo for changes
+  url: http://192.168.2.216:8080 # ifconfig.en0.inet / machine address 
   secretRef:
     name: myhelmrepo-secret
 

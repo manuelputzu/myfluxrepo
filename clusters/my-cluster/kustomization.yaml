@@ -7,3 +7,5 @@ resources:
   - podinfo-kustomization.yaml
   - busybox-helm-release.yaml
   - localhttprepo.yaml
+  - mysql-release.yaml
+  - bitnami-oci.yaml

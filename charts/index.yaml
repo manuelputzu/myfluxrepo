@@ -3,13 +3,12 @@ entries:
   busybox:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-08-27T22:57:45.042844797Z"
+    created: "2025-09-02T10:31:46.956653+02:00"
     description: A Helm chart for Kubernetes
     digest: 8847fae1a37135428cde4ecbe880f3a07072f8a789c6d1427c7ff2ca26715cc4
     name: busybox
     type: application
     urls:
-    - charts/busybox-0.1.0.tgz
+    - busybox-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-27T22:57:45Z"
-serverInfo: {}
+generated: "2025-09-02T10:31:46.955972+02:00"

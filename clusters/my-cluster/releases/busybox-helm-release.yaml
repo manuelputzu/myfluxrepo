@@ -12,4 +12,5 @@ spec:
       sourceRef:        
         kind: HelmRepository        
         name: myhelmrepo        
-        namespace: default      
+        namespace: default
+      interval: 1m
